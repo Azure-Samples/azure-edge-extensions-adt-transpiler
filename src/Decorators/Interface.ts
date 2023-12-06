@@ -1,11 +1,19 @@
+import { ElementDescriptor } from "./ElementDescriptor";
+
 /**
- * Decorator that defines an interface with the specified name.
+ * Decorator used to define metadata for an interface.
  * 
- * @param name - The name of the interface.
- * @returns A decorator function.
+ * @param descriptor - The descriptor object containing the metadata properties.
+ * @returns A function that applies the metadata to the target class.
  */
-export function Interface(name: string) {
+export function Interface(descriptor: ElementDescriptor) {
     return function (target: any) {
-        Reflect.defineMetadata('name', name, target.prototype);
+        if (!descriptor.id) {
+            descriptor.id = target.prototype.constructor.name;
+        }
+        if (!descriptor.name) {
+            descriptor.name = target.prototype.constructor.name;
+        }
+        Reflect.defineMetadata('elementDescriptor', descriptor, target.prototype);
     };
 }

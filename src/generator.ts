@@ -24,12 +24,12 @@ export class DtdlGenerator {
     static generateDtdlFromClass(classInstance: any): any {
         const dtdlProperties = DtdlGenerator.getContents(classInstance);
         const type = classInstance.constructor.name;
-        const displayName = Reflect.getMetadata('name', classInstance)??type;
+        const descriptor = Reflect.getMetadata('elementDescriptor', classInstance);
         const dtdl = `{
             "@context": "dtmi:dtdl:context;2",
             "@type": "Interface",
-            "@id": "dtmi:com:example:${type};1",
-            "displayName": "${displayName}",
+            "@id": "dtmi:com:example:${descriptor.id};1",
+            "displayName": "${descriptor.name}",
             "contents": [
                 ${dtdlProperties.join(',\n')}
             ]

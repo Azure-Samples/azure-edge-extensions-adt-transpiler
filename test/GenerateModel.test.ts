@@ -2,8 +2,12 @@ import { Interface, Description, Property} from "../src/Decorators";
 import { Guid } from "guid-typescript";
 import { DtdlGenerator } from "../src/generator";
 
-@Interface("Identified Object")
-@Description("This is a root interface for all Digital Twin objects.")
+@Interface({
+    name: "Identified Object",
+    id: "IdentifiedObject",
+    description: "This is a root interface for all Digital Twin objects.",
+    comment: "This is a comment."
+})
 class IdentifiedObject {
     @Property()
     description: string = "";
@@ -17,8 +21,12 @@ class IdentifiedObject {
     shortName: string = "";
 }
 
-@Interface("Power System Resource")
-@Description("This is a root class for all objects that belong to the collection of power system resources.")
+@Interface({
+    name: "Power System Resource",
+    id: "PowerSystemResource",
+    description: "This is a root interface for all objects that belong to the collection of power system resources.",
+    comment: "This is a comment."
+})
 class PowerSystemResource extends IdentifiedObject {
     @Property()
     location: string = "";

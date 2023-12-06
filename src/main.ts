@@ -1,7 +1,12 @@
 import { DtdlGenerator } from "./generator";
 import { Interface, Property } from "./Decorators";
 
-@Interface("My Class") 
+@Interface({
+    name: "MyClass",
+    id: "MyClass",
+    description: "This is a root interface for all Digital Twin objects.",
+    comment: "This is a comment."
+}) 
 class MyClass {
     @Property()
     id: string = "";
