@@ -1,14 +1,14 @@
-# Project Name
+# DTDL Transpiler
 
-(short, 1-3 sentenced, description of the project)
+The DTDL Transpiler is a framework consisting of Decorators for TypeScript classes, methods, and properties to map the classes to DTDL Interfaces, Properties, Relationships, and Telemetry. This allows developers to manage their DTDL ontology as code elements similar to a code first ORM like Entity Framework or TypeORM.
 
 ## Features
 
 This project framework provides the following features:
 
-* Feature 1
-* Feature 2
-* ...
+* DTDL Decorators for marking up TypeScript Classes as DTDL Entities
+* A generator that creates DTDL from Decorated classes
+* Supports class hierarchies (extends), relationships, properties, and telemetry
 
 ## Getting Started
 
@@ -24,9 +24,7 @@ This project framework provides the following features:
 
 (ideally very short)
 
-- npm install [package name]
-- mvn install
-- ...
+- npm install @azure-edge-extensions/adt-transpiler
 
 ### Quickstart
 (Add steps to get up and running quickly)
