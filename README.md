@@ -2,6 +2,12 @@
 
 The DTDL Transpiler is a framework consisting of Decorators for TypeScript classes, methods, and properties to map the classes to DTDL Interfaces, Properties, Relationships, and Telemetry. This allows developers to manage their DTDL ontology as code elements similar to a code first ORM like Entity Framework or TypeORM.
 
+## Basic Concepts
+
+Digital Twins Definition Language (DTDL) is an ontology specification language. It supports defining named relationships between entities, both in a hierarchy and peer to peer. While DTDL is human readable, it is not ideal for writing and managing the ontology by hand, especially for large ontologies.
+
+The transpiler will allow users to manage their DTDL ontology in code, similar to the usage of Entity Framework for database schemas. 
+
 ## Features
 
 This project framework provides the following features:
@@ -14,42 +20,30 @@ This project framework provides the following features:
 
 ### Prerequisites
 
-(ideally very short, if any)
-
-- OS
-- Library version
-- ...
+- Node.js and npm installed on your system
+- TypeScript knowledge for leveraging decorators.
 
 ### Installation
 
-(ideally very short)
+1. Clone this repository
 
-- npm install @azure-edge-extensions/adt-transpiler
+` git clone https://github.com/Azure-Samples/azure-edge-extensions-adt-transpiler.git
+  cd azure-edge-extensions-adt-transpiler
+`
 
-### Quickstart
-(Add steps to get up and running quickly)
+2. Install dependencies:
 
-1. git clone [repository clone url]
-2. cd [repository name]
-3. ...
+` npm install
+  npm link
+`
 
+## Usage
+1. Define your TypeScript classes with decorators to represent your DTDL model (see /src/main.ts in the repository for an example).
+2. Use the DtdlGenerator.generateDtdlFromClass() function passing in the classes you have defined. Order does not matter, the generator will determine dependencies and validate the DTDL before generation.
 
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
+## Known issues
+This utility is still in active development full DTDL support is not currently implemented (relationships, inheritance). The work to enable full DTDL support is in process.
 
 ## Resources
 
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
+- [DTDL Specification](https://azure.github.io/opendigitaltwins-dtdl/DTDL/v3/DTDL.v3.html)
